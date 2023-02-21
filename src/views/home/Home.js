@@ -1,14 +1,14 @@
 import { Map, Marker } from "pigeon-maps"
 import { useState, useEffect } from 'react'
+import CardContainer from "../../components/CardContainer"
+
 
 function Home() {
   
-  const [anchor, setAnchor] = useState([])
+  const [anchor, setAnchor] = useState()
   const [latLng, setLatLng] = useState()
-  const [name, setName] = useState()
+  const [fetchString, setFetchString] = useState()
 
-  console.log(name)
-  console.log(latLng)
   return (
     <div>
 
@@ -19,20 +19,19 @@ function Home() {
       onClick={({latLng}) => {
         setLatLng(latLng)
         setAnchor(latLng)
-        setName('Test name onclick')
+        setFetchString(`https://api.openbrewerydb.org/breweries?by_dist=${latLng}&per_page=10`)
       }}>
 
       <Marker 
         width={25} 
         anchor={latLng}>
       </Marker>
-
-      {/* <Card>
-        name = {name}
-      </Card> */}
-      
     </Map>
 
+    
+     <CardContainer
+      fetchString={fetchString}
+     />
     </div>
   )
 }
