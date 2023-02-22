@@ -1,20 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import Home from './views/home/Home'
-import About from './views/about/About'
+import { FavoritesProvider } from "./context/FavoritesContext";
+import Favorites from "./views/favorites/Favorites";
 import NotFound from './views/notfound/NotFound'
-import Layout from './layout/Layout'
+
 
 function App() {
   return (
-    <div className="App">
-     <Routes>
-        <Route path='/' element={<Layout/>}>
-        <Route index element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='*' element={<NotFound/>}/>
-        </Route>
-      </Routes>
-    </div>
+    <FavoritesProvider>
+      <div className="App">
+        <Routes> 
+          <Route path="/" element={<Home/>} />
+          <Route path="/favorites" element={<Favorites/>} />
+        </Routes>
+      </div>
+    </FavoritesProvider>
   );
 }
 

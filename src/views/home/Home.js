@@ -15,7 +15,7 @@ function Home() {
     <div>
 
       <Map 
-      height={500} 
+      height={350} 
       defaultWidth={1200}
       defaultCenter={[39.8283, -98.5795]} 
       defaultZoom={4}
@@ -24,21 +24,21 @@ function Home() {
         setAnchor(latLng)
         setFetchString(`https://api.openbrewerydb.org/breweries?by_dist=${latLng}&per_page=10`)
       }}
-      
-      
       >
 
-      <ZoomControl />
+      <ZoomControl/>
 
       <Marker 
         width={25} 
         anchor={latLng}>
       </Marker>
+
     </Map>
 
      <CardContainer
       fetchString={fetchString}
      />
+
     </div>
   )
 }
