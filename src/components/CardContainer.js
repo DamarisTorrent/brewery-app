@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react'
 import BrewCard from './BrewCard'
-
+import { useContext } from 'react'
+import FavoritesContext from '../context/FavoritesContext'
 
 function CardContainer( props ) {
   
+
+
   const [breweryData, setBreweryData] = useState([])
   const {fetchString} = props
  
-
   useEffect(() => {
     
     fetch(fetchString)
@@ -27,9 +29,9 @@ function CardContainer( props ) {
     
     <div>
 
-       {breweryData.map((element) => {
-          return (
-            <div >
+      {breweryData.map((element) => {
+        return (
+          <div >
             <BrewCard
               name={element.name}
               brewery_type={element.brewery_type}
@@ -41,10 +43,9 @@ function CardContainer( props ) {
               phone={element.phone}
               website_url={element.website_url}
             />
-            </div>
-            )
-            })}
-
+          </div>
+          )
+          })}
     </div>
     
   )
