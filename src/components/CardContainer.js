@@ -23,7 +23,7 @@ function CardContainer( props ) {
    
   return (
     
-    <div>
+    <div className='cardContainer'>
 
       {breweryData.map((element) => {
         return (

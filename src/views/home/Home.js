@@ -1,6 +1,9 @@
 import { Map, Marker, ZoomControl } from "pigeon-maps"
 import { useState} from 'react'
 import CardContainer from "../../components/CardContainer"
+import logo from '../../components/dudebeer.png'
+import  AppBar  from '../../components/AppBar'
+import PaperContainer from'../../components/PaperContainer'
 
 
 function Home() {
@@ -9,8 +12,10 @@ function Home() {
   const [latLng, setLatLng] = useState()
   const [fetchString, setFetchString] = useState()
 
+  
   return (
     <div>
+      <AppBar></AppBar>
 
       <Map 
       height={350} 
@@ -33,9 +38,11 @@ function Home() {
 
     </Map>
 
+   
      <CardContainer
       fetchString={fetchString}
      />
+     
 
     </div>
   )

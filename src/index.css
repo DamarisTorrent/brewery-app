@@ -14,4 +14,6 @@ code {
 
 .cardContainer {
   display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
 }

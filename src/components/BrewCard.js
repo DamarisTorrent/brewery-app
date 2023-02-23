@@ -13,6 +13,7 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useContext } from 'react'
 import FavoritesContext, { FavoritesProvider } from '../context/FavoritesContext'
+import logo from './beer.png'
 
 import Link from '@mui/material/Link';
 
@@ -41,10 +42,10 @@ function BrewCard( props ) {
     })
 
   const handleClick = (prev) => {
-
+    if (!like) {
     addFavorite(props)
     setLike(!prev)
-
+    }
   }
 
   return (
@@ -54,9 +55,7 @@ function BrewCard( props ) {
      
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: red[500] }} >
-              R
-            </Avatar>
+            <Avatar alt="Remy Sharp" src={logo}/>
           }
           
           title={name}
@@ -75,7 +74,7 @@ function BrewCard( props ) {
         </CardContent>
 
         <CardActions >
-          <IconButton onClick={() => handleClick()}>
+          <IconButton onClick={() => handleClick()} style={{color:like==true?"#ffc169":""}}>
             <FavoriteIcon/>
           </IconButton>
         </CardActions>
