@@ -12,14 +12,14 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useContext } from 'react'
-import FavoritesContext from '../context/FavoritesContext'
+import FavoritesContext, { FavoritesProvider } from '../context/FavoritesContext'
 
 import Link from '@mui/material/Link';
 
 
 function BrewCard( props ) {
   
-  const {
+  const  {
     name,
     brewery_type,
     street,
@@ -32,21 +32,19 @@ function BrewCard( props ) {
   } = props
   
   const [like, setLike] = useState(false)
-  const {favorites} = useContext(FavoritesContext)
-
+  const {addFavorite} = useContext(FavoritesContext)
+  
+  
   const breweryType = brewery_type.toLowerCase().replace(/\b[a-z]/g, function(letter) 
     {
       return letter.toUpperCase()
     })
 
   const handleClick = (prev) => {
-   
-    console.log(favorites)
-    
-    favorites.push(props)
-    console.log('I handled the click')
+
+    addFavorite(props)
     setLike(!prev)
-   
+
   }
 
   return (

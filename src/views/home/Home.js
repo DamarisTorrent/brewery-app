@@ -9,8 +9,6 @@ function Home() {
   const [latLng, setLatLng] = useState()
   const [fetchString, setFetchString] = useState()
 
-  
-
   return (
     <div>
 

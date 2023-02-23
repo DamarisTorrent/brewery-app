@@ -1,12 +1,8 @@
 import { useState, useEffect } from 'react'
 import BrewCard from './BrewCard'
-import { useContext } from 'react'
-import FavoritesContext from '../context/FavoritesContext'
 
 function CardContainer( props ) {
   
-
-
   const [breweryData, setBreweryData] = useState([])
   const {fetchString} = props
  
