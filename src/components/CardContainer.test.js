@@ -6,7 +6,7 @@ import { BrowserRouter} from 'react-router-dom';
 import CardContainer from './CardContainer';
 
 describe('testing home page', () => {
-  test('user has no favorites selected and page should say so', async () => {
+  test('cards should display on the page', async () => {
     // ARRANGE - Render a React element into the DOM
     render(
       <CardContainer></CardContainer>

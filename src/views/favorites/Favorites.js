@@ -3,14 +3,16 @@ import FavoritesContext from '../../context/FavoritesContext'
 import BrewCard from '../../components/BrewCard'
 import Typography from '@mui/material/Typography';
 import AppBar from '../../components/AppBar'
-import { Link } from 'react-router-dom';
+
 
 function Favorites() {
 
+  //Get the favorite list from context
   const {favoriteList} = useContext(FavoritesContext)
   
   let noFavorites = false
 
+  //If favorite list is empty set a noFavorites boolean to display empty message
   if (favoriteList.length === 0) {
     noFavorites = true
   }
@@ -20,7 +22,7 @@ function Favorites() {
        
       <AppBar></AppBar>
       <div>
-      {noFavorites ? <Link to="/"><Typography variant="h3" data-testid='nofaves'>No favorites yet, go home and get busy drinking!</Typography></Link>: ''}
+      {noFavorites ? <Typography variant="h3" data-testid='nofaves'>No favorites yet, go home and get busy drinking!</Typography>: ''}
       </div>
       <br></br>
 

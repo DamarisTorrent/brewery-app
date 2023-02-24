@@ -12,6 +12,7 @@ import { useLocation } from "react-router-dom"
 
 export default function ButtonAppBar() {
 
+  //Check if the AppBar is being displayed on Favorites page, if so hide favorites link button
   const location = useLocation()
   
   let isFavorites = false
@@ -23,20 +24,22 @@ export default function ButtonAppBar() {
   return (
     
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: '#aad3df' }}>
+      <AppBar position="static" style={{ background: '#aad3df' }} >
      
-        <Toolbar>
-        <Box
-            component="img"
-            sx={{
-            height: 75,
-            }}
-            src={logo}
-        />
-          {console.log(isFavorites)}
-          {!isFavorites ? <Link to="/favorites">
-            <Button color="inherit" variant="contained">Favorites</Button>
-          </Link>: <span></span>}
+        <Toolbar style={{display:'flex', justifyContent:"space-between"}}>
+        <Link to="/">
+          <Box
+              component="img"
+              sx={{
+              height: 75,
+              }}
+              src={logo}
+          />
+        </Link>
+       
+        {!isFavorites ? <Link to="/favorites" underline='none'>
+          <Button color="inherit" variant="contained" size='large'><Typography color="black">Favorites</Typography></Button>
+        </Link>: <span></span>}
           
         </Toolbar>
       </AppBar>
