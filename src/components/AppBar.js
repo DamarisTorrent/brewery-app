@@ -8,11 +8,23 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from './dudebeer.png'
 import { Link } from 'react-router-dom';
+import { useLocation } from "react-router-dom"
 
 export default function ButtonAppBar() {
+
+  const location = useLocation()
+  
+  let isFavorites = false
+
+  if (location.pathname === '/favorites') {
+    isFavorites = true
+  }
+ 
   return (
+    
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: '#aad3df' }}>
+     
         <Toolbar>
         <Box
             component="img"
@@ -21,10 +33,11 @@ export default function ButtonAppBar() {
             }}
             src={logo}
         />
-          
-          <Link to="/favorites">
+          {console.log(isFavorites)}
+          {!isFavorites ? <Link to="/favorites">
             <Button color="inherit" variant="contained">Favorites</Button>
-          </Link>
+          </Link>: <span></span>}
+          
         </Toolbar>
       </AppBar>
     </Box>

@@ -15,5 +15,9 @@ code {
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
+  justify-content: space-around;
+  gap:15px;
+  margin-top: 25px;
 }
+
+

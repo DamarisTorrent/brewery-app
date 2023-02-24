@@ -1,22 +1,32 @@
-import { useContext } from 'react'
+import { useContext} from 'react'
 import FavoritesContext from '../../context/FavoritesContext'
 import BrewCard from '../../components/BrewCard'
-import { AppBar } from '../../components/AppBar'
+import Typography from '@mui/material/Typography';
+import AppBar from '../../components/AppBar'
+import { Link } from 'react-router-dom';
 
 function Favorites() {
 
   const {favoriteList} = useContext(FavoritesContext)
-  console.log(favoriteList)
   
+  let noFavorites = false
+
+  if (favoriteList.length === 0) {
+    noFavorites = true
+  }
   return (
     
-      
-      <div>
+    <div>
        
+      <AppBar></AppBar>
+      <div>
+      {noFavorites ? <Link to="/"><Typography variant="h3" data-testid='nofaves'>No favorites yet, go home and get busy drinking!</Typography></Link>: ''}
+      </div>
+      <br></br>
 
       {favoriteList.map((element) => {
         return (
-          <div >
+          <div className='cardContainer'>
             <BrewCard
               name={element.name}
               brewery_type={element.brewery_type}
@@ -33,10 +43,6 @@ function Favorites() {
           })}
     </div>
    
-
-    
-
-    
   )
 }
 
